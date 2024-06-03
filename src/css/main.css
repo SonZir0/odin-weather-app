@@ -1,0 +1,69 @@
+:root {
+    /* --search-tab-color: rgb(200, 219, 248); */
+    --search-tab-border-color: rgb(49, 78, 122);
+    --search-tab-focus-color: rgb(231, 112, 112);
+    --search-tab-btn-color: rgb(154, 192, 250);
+    background-color: rgb(200, 219, 248); /*rgb(236, 243, 255);*/
+}
+
+html {
+    box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+.searchTab {
+    display: flex;
+    gap: 2rem;
+    margin: 0px auto;
+    padding: 1.5rem;
+    max-width: 750px;
+
+    form {
+        flex: 1;
+        display: flex;
+        font-size: 1.5rem;
+
+        &:focus-within {
+            outline: 3px solid black;
+            outline-offset: -1px;
+            border-radius: 10px;
+        }
+
+        input {
+            flex: 1;
+            background-color: transparent;
+            border: 2px solid var(--search-tab-border-color);
+            border-right: none;
+            border-radius: 8px 0px 0px 8px;
+            padding: 0.25rem 0.75rem;
+        }
+
+        input:focus {
+            outline: 4px solid var(--search-tab-focus-color);
+            border-color: transparent;
+            z-index: 1;
+        }
+
+        button {
+            border-radius: 0px 8px 8px 0px;
+            background-color: var(--search-tab-btn-color);
+        }
+    }
+
+    > button {
+        font-size: 1.25rem;
+        border-radius: 8px;
+        background-color: var(--search-tab-btn-color);
+    }
+
+    button:focus {
+        outline: 3px solid var(--search-tab-focus-color);
+        outline-offset: -1px;
+        border-color: transparent;
+        z-index: 1;
+    }
+}
