@@ -2,11 +2,14 @@
     /* --search-tab-color: rgb(200, 219, 248); */
     --search-tab-border-color: rgb(49, 78, 122);
     --search-tab-focus-color: rgb(231, 112, 112);
-    --search-tab-btn-color: rgb(154, 192, 250);
-    background-color: rgb(200, 219, 248); /*rgb(236, 243, 255);*/
+    --search-tab-btn-color: rgb(132, 181, 255);
+    --search-tab-btn-hover-color: rgb(156, 195, 253);
+    --search-tab-btn-active-color: rgb(124, 165, 228);
+    --page-background-color: rgb(200, 219, 248);
 }
 
 html {
+    background-color: var(--page-background-color);
     box-sizing: border-box;
 }
 *,
@@ -27,7 +30,7 @@ html {
         display: flex;
         font-size: 1.5rem;
 
-        &:focus-within {
+        &:focus-within:has(> *:focus-visible) {
             outline: 3px solid black;
             outline-offset: -1px;
             border-radius: 10px;
@@ -42,7 +45,7 @@ html {
             padding: 0.25rem 0.75rem;
         }
 
-        input:focus {
+        input:focus-visible {
             outline: 4px solid var(--search-tab-focus-color);
             border-color: transparent;
             z-index: 1;
@@ -60,10 +63,18 @@ html {
         background-color: var(--search-tab-btn-color);
     }
 
-    button:focus {
-        outline: 3px solid var(--search-tab-focus-color);
-        outline-offset: -1px;
+    button:focus-visible {
+        outline: 4px solid var(--search-tab-focus-color);
+        outline-offset: -2px;
         border-color: transparent;
         z-index: 1;
+    }
+
+    button:hover {
+        background-color: var(--search-tab-btn-hover-color);
+    }
+
+    button:active {
+        background-color: var(--search-tab-btn-active-color);
     }
 }
