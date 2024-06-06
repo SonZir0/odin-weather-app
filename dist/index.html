@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Weather App</title>
+    <link rel="icon" href="cloud.png"><script defer src="main.js"></script></head>
+    <body>
+        <div class="searchTab">
+            <form action="#">
+                <input
+                    type="search"
+                    name=""
+                    id=""
+                    placeholder="Search for a location"
+                />
+                <button>Search</button>
+            </form>
+            <button id="changeUnit" data-temp-unit="C" type="button">
+                Change to °F
+            </button>
+        </div>
+
+        <main>
+            <div class="todayTab">
+                <div class="synopsis">
+                    <p class="location heading">City, Country</p>
+                    <p class="date">Date: <span></span></p>
+                    <div class="bottomPart">
+                        <div class="mainInfo">
+                            <p class="temperature">Current: <span></span></p>
+                            <div class="minMaxTemp">
+                                <p class="minTemp">Min: <span></span></p>
+                                <p class="maxTemp">Max: <span></span></p>
+                            </div>
+                            <p class="condition"></p>
+                        </div>
+                        <img src="fe1ad0ff1820050f573a.png" alt="" />
+                    </div>
+                </div>
+                <div class="details">
+                    <p class="heading">Details</p>
+                    <div class="addInfo">
+                        <div class="tempBlock feelsLike">
+                            <p>Feels like</p>
+                            <p></p>
+                        </div>
+                        <div class="tempBlock wind">
+                            <p>Wind</p>
+                            <p></p>
+                        </div>
+                        <div class="tempBlock humidity">
+                            <p>Humidity</p>
+                            <p></p>
+                        </div>
+                        <div class="tempBlock UV">
+                            <p>UV index</p>
+                            <p></p>
+                        </div>
+                        <div class="tempBlock visibility">
+                            <p>Visibility</p>
+                            <p></p>
+                        </div>
+                        <div class="tempBlock rainChance">
+                            <p>Chance of rain</p>
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="forecastTab">
+                <div class="tomorrowCard">
+                    <p class="heading">Tomorrow</p>
+                    <p class="date">Date: <span></span></p>
+                    <div class="bottomPart">
+                        <div class="mainInfo">
+                            <p class="temperature">Average: <span></span></p>
+                            <div class="minMaxTemp">
+                                <p class="minTemp">Min: <span></span></p>
+                                <p class="maxTemp">Max: <span></span></p>
+                            </div>
+                            <p class="condition"></p>
+                        </div>
+                        <img src="fe1ad0ff1820050f573a.png" alt="" />
+                    </div>
+
+                    <div class="addInfo">
+                        <div class="tempBlock UV">
+                            <p>UV index</p>
+                            <p></p>
+                        </div>
+                        <div class="tempBlock rainChance">
+                            <p>Chance of rain</p>
+                            <p></p>
+                        </div>
+                        <div class="tempBlock humidity">
+                            <p>Average humidity</p>
+                            <p></p>
+                        </div>
+                        <div class="tempBlock totalPrecipitation">
+                            <p>Total precipitation</p>
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="aDayAfterCard">
+                    <p class="heading">A day after</p>
+                    <p class="date">Date: <span></span></p>
+                    <div class="bottomPart">
+                        <div class="mainInfo">
+                            <p class="temperature">Average: <span></span></p>
+                            <div class="minMaxTemp">
+                                <p class="minTemp">Min: <span></span></p>
+                                <p class="maxTemp">Max: <span></span></p>
+                            </div>
+                            <p class="condition"></p>
+                        </div>
+                        <img src="fe1ad0ff1820050f573a.png" alt="" />
+                    </div>
+                    <div class="addInfo">
+                        <div class="tempBlock UV">
+                            <p>UV index</p>
+                            <p></p>
+                        </div>
+                        <div class="tempBlock rainChance">
+                            <p>Chance of rain</p>
+                            <p></p>
+                        </div>
+                        <div class="tempBlock humidity">
+                            <p>Average humidity</p>
+                            <p></p>
+                        </div>
+                        <div class="tempBlock totalPrecipitation">
+                            <p>Total precipitation</p>
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <p>
+                Powered by
+                <a href="https://www.weatherapi.com/" title="Free Weather API"
+                    >WeatherAPI.com
+                </a>
+            </p>
+        </footer>
+    </body>
+</html>
