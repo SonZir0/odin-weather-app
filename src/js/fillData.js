@@ -1,6 +1,6 @@
 /*  global document */
 //  export at the very bottom
-function displayCurrentWeather(data) {
+function displayTodayTab(data, tempUnit) {
     const todayTab = document.querySelector('.todayTab');
     const details = document.querySelector('.details .addInfo');
 
@@ -8,19 +8,10 @@ function displayCurrentWeather(data) {
         `${data.location.name}, ${data.location.country}`;
     todayTab.querySelector('.date').textContent =
         `${data.forecast.forecastday[0].date}`;
-    todayTab.querySelector('.temperature span').textContent =
-        `${data.current.temp_c}`;
-    todayTab.querySelector('.minTemp span').textContent =
-        `${data.forecast.forecastday[0].day.mintemp_c}`;
-    todayTab.querySelector('.maxTemp span').textContent =
-        `${data.forecast.forecastday[0].day.maxtemp_c}`;
     todayTab.querySelector('.condition').textContent =
         data.current.condition.text;
     todayTab.querySelector('img').src = data.current.condition.icon;
 
-    // details tab
-    details.querySelector('.feelsLike p+p').textContent =
-        `${data.current.feelslike_c}`;
     details.querySelector('.wind p+p').textContent = `${data.current.wind_kph}`;
     details.querySelector('.humidity p+p').textContent =
         `${data.current.humidity}`;
@@ -29,20 +20,31 @@ function displayCurrentWeather(data) {
         `${data.current.vis_km}`;
     details.querySelector('.rainChance p+p').textContent =
         `${data.forecast.forecastday[0].day.daily_chance_of_rain}`;
+
+    if (tempUnit === 'C') {
+        todayTab.querySelector('.temperature span').textContent =
+            `${data.current.temp_c} °${tempUnit}`;
+        todayTab.querySelector('.minTemp span').textContent =
+            `${data.forecast.forecastday[0].day.mintemp_c} °${tempUnit}`;
+        todayTab.querySelector('.maxTemp span').textContent =
+            `${data.forecast.forecastday[0].day.maxtemp_c} °${tempUnit}`;
+        details.querySelector('.feelsLike p+p').textContent =
+            `${data.current.feelslike_c} °${tempUnit}`;
+    } else {
+        todayTab.querySelector('.temperature span').textContent =
+            `${data.current.temp_f} °${tempUnit}`;
+        todayTab.querySelector('.minTemp span').textContent =
+            `${data.forecast.forecastday[0].day.mintemp_f} °${tempUnit}`;
+        todayTab.querySelector('.maxTemp span').textContent =
+            `${data.forecast.forecastday[0].day.maxtemp_f} °${tempUnit}`;
+        details.querySelector('.feelsLike p+p').textContent =
+            `${data.current.feelslike_f} °${tempUnit}`;
+    }
 }
 
-function displayForecastData(dayCard, data) {
+function displayForecastData(dayCard, data, tempUnit) {
     const date = dayCard.querySelector('.date');
     date.textContent = `${data.date}`;
-
-    const avgTemp = dayCard.querySelector('.temperature span');
-    avgTemp.textContent = `${data.day.avgtemp_c}`;
-
-    const minTemp = dayCard.querySelector('.minTemp span');
-    minTemp.textContent = `${data.day.mintemp_c}`;
-
-    const maxTemp = dayCard.querySelector('.maxTemp span');
-    maxTemp.textContent = `${data.day.maxtemp_c}`;
 
     const condition = dayCard.querySelector('.condition');
     condition.textContent = data.day.condition.text;
@@ -61,13 +63,37 @@ function displayForecastData(dayCard, data) {
 
     const totalPrecipitation = dayCard.querySelector('.totalPrecipitation p+p');
     totalPrecipitation.textContent = data.day.totalprecip_mm;
+
+    if (tempUnit === 'C') {
+        const avgTemp = dayCard.querySelector('.temperature span');
+        avgTemp.textContent = `${data.day.avgtemp_c} °${tempUnit}`;
+
+        const minTemp = dayCard.querySelector('.minTemp span');
+        minTemp.textContent = `${data.day.mintemp_c} °${tempUnit}`;
+
+        const maxTemp = dayCard.querySelector('.maxTemp span');
+        maxTemp.textContent = `${data.day.maxtemp_c} °${tempUnit}`;
+    } else {
+        const avgTemp = dayCard.querySelector('.temperature span');
+        avgTemp.textContent = `${data.day.avgtemp_f} °${tempUnit}`;
+
+        const minTemp = dayCard.querySelector('.minTemp span');
+        minTemp.textContent = `${data.day.mintemp_f} °${tempUnit}`;
+
+        const maxTemp = dayCard.querySelector('.maxTemp span');
+        maxTemp.textContent = `${data.day.maxtemp_f} °${tempUnit}`;
+    }
 }
 
-export default function fillData(weatherData) {
-    // console.log(weatherData);
-    displayCurrentWeather(weatherData);
+export default function fillData(weatherData, tempUnit) {
+    console.log(weatherData);
+    displayTodayTab(weatherData, tempUnit);
     const forecastCards = document.querySelectorAll('.forecastTab > div');
     forecastCards.forEach((card, index) => {
-        displayForecastData(card, weatherData.forecast.forecastday[index + 1]);
+        displayForecastData(
+            card,
+            weatherData.forecast.forecastday[index + 1],
+            tempUnit
+        );
     });
 }

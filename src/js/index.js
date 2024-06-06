@@ -8,11 +8,27 @@ import fillData from './fillData';
 
 const location = document.querySelector('input[type="search"]');
 const searchForm = document.querySelector('form');
+const changeTempUnitBtn = document.querySelector('#changeUnit');
+let lastOkRequest = null;
+
+changeTempUnitBtn.addEventListener('click', () => {
+    if (changeTempUnitBtn.dataset.tempUnit === 'C') {
+        changeTempUnitBtn.textContent = 'Change to °C';
+        changeTempUnitBtn.dataset.tempUnit = 'F';
+    } else {
+        changeTempUnitBtn.textContent = 'Change to °F';
+        changeTempUnitBtn.dataset.tempUnit = 'C';
+    }
+
+    if (lastOkRequest)
+        fillData(lastOkRequest, changeTempUnitBtn.dataset.tempUnit);
+});
 
 searchForm.addEventListener('submit', () => {
     getWeatherInCity(location.value)
         .then((result) => {
-            fillData(result);
+            lastOkRequest = result;
+            fillData(lastOkRequest, changeTempUnitBtn.dataset.tempUnit);
         })
         .catch((error) => {
             let alertText = 'Something went wrong...';
