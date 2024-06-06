@@ -67,6 +67,7 @@ body {
         font-size: 1.25rem;
         border-radius: 8px;
         background-color: var(--search-tab-btn-color);
+        width: 125px;
     }
 
     button:focus-visible {
@@ -87,6 +88,7 @@ body {
 
 main {
     .heading {
+        margin-bottom: 0.25rem;
         font-size: 1.75rem;
         font-weight: bold;
     }

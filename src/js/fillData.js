@@ -12,14 +12,15 @@ function displayTodayTab(data, tempUnit) {
         data.current.condition.text;
     todayTab.querySelector('img').src = data.current.condition.icon;
 
-    details.querySelector('.wind p+p').textContent = `${data.current.wind_kph}`;
+    details.querySelector('.wind p+p').textContent =
+        `${data.current.wind_kph} km/h`;
     details.querySelector('.humidity p+p').textContent =
-        `${data.current.humidity}`;
+        `${data.current.humidity} %`;
     details.querySelector('.UV p+p').textContent = `${data.current.uv}`;
     details.querySelector('.visibility p+p').textContent =
-        `${data.current.vis_km}`;
+        `${data.current.vis_km} km`;
     details.querySelector('.rainChance p+p').textContent =
-        `${data.forecast.forecastday[0].day.daily_chance_of_rain}`;
+        `${data.forecast.forecastday[0].day.daily_chance_of_rain} %`;
 
     if (tempUnit === 'C') {
         todayTab.querySelector('.temperature span').textContent =
@@ -56,13 +57,13 @@ function displayForecastData(dayCard, data, tempUnit) {
     UVindex.textContent = data.day.uv;
 
     const rainChance = dayCard.querySelector('.rainChance p+p');
-    rainChance.textContent = data.day.daily_chance_of_rain;
+    rainChance.textContent = `${data.day.daily_chance_of_rain} %`;
 
     const avgHumidity = dayCard.querySelector('.humidity p+p');
-    avgHumidity.textContent = data.day.avghumidity;
+    avgHumidity.textContent = `${data.day.avghumidity} %`;
 
     const totalPrecipitation = dayCard.querySelector('.totalPrecipitation p+p');
-    totalPrecipitation.textContent = data.day.totalprecip_mm;
+    totalPrecipitation.textContent = `${data.day.totalprecip_mm} mm`;
 
     if (tempUnit === 'C') {
         const avgTemp = dayCard.querySelector('.temperature span');
