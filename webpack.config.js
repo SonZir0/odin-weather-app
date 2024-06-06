@@ -17,7 +17,7 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             template: './src/index.html',
-            favicon: './src/icons/weather/day/116.png',
+            favicon: './src/cloud.png',
             scriptLoading: 'defer',
         }),
     ],

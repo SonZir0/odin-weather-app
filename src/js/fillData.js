@@ -6,7 +6,7 @@ function displayTodayTab(data, tempUnit) {
 
     todayTab.querySelector('.location').textContent =
         `${data.location.name}, ${data.location.country}`;
-    todayTab.querySelector('.date').textContent =
+    todayTab.querySelector('.date span').textContent =
         `${data.forecast.forecastday[0].date}`;
     todayTab.querySelector('.condition').textContent =
         data.current.condition.text;
@@ -44,7 +44,7 @@ function displayTodayTab(data, tempUnit) {
 }
 
 function displayForecastData(dayCard, data, tempUnit) {
-    const date = dayCard.querySelector('.date');
+    const date = dayCard.querySelector('.date span');
     date.textContent = `${data.date}`;
 
     const condition = dayCard.querySelector('.condition');

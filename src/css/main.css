@@ -143,11 +143,22 @@ main {
         }
     }
 
+    .details {
+        display: flex;
+        flex-direction: column;
+
+        > p {
+            margin-bottom: 1rem;
+        }
+    }
+
     .addInfo {
+        margin-top: 0.5rem;
+        flex: 1;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
+        align-items: center;
         gap: 0.75rem;
-        margin-top: 1.5rem;
     }
 
     :not(.details) > .addInfo {
